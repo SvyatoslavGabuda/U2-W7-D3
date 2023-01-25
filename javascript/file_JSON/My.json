@@ -1,0 +1,41 @@
+[{
+    "nome": "Back in Black",
+    "artista":"AC/DC",
+    "durata":"41:31",
+    "dischi": 1,
+    "tracce": 10,
+    "genere": ["Hard-Rock","Heavy Metal"],
+    "reggistrazione": {
+        "anno": 1980,
+        "luogo": "Nassau(Bahamas)"
+    }
+
+},
+{
+    "nome": "Master of Puppets",
+    "artista":"Metallica",
+    "durata":"54:45",
+    "dischi": 1,
+    "tracce": 8,
+    "genere": ["Speed metal","Thrash metal"],
+    "reggistrazione": {
+        "anno": 1985,
+        "luogo": "Copenaghen (Danimarca)"
+    }
+
+},
+{
+    "nome": "Take Off Your Pants and Jacket",
+    "artista":"Blink-182",
+    "durata":"41:31",
+    "dischi": 1,
+    "tracce": 13,
+    "genere": ["Pop-punk","post-grunge","punk reviva"],
+    "reggistrazione": {
+        "anno": 2000,
+        "luogo": "San Diego (california)"
+    }
+
+}
+
+]
