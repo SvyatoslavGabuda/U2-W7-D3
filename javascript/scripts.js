@@ -46,4 +46,65 @@ const timer = function () {
   }, 1000);
 };
 
-window.onload = timer;
+const taskInput = document.getElementById("taskInput");
+const saveBtn = document.getElementById("save");
+const clearBtn = document.getElementById("clear");
+const clearListBtn = document.getElementById("clearList");
+const addBtn = document.getElementById("add");
+const loadBtn = document.getElementById("load");
+
+const taskContainer = document.getElementById("tasks");
+
+const arrayTask = [];
+
+const addTask = function () {
+  const element = document.createElement("li");
+  element.innerText = taskInput.value;
+  taskContainer.appendChild(element);
+  arrayTask.push(taskInput.value);
+  console.log(arrayTask);
+  taskInput.value = "";
+};
+
+const saveTasks = function () {
+  localStorage.setItem("tasks", JSON.stringify(arrayTask));
+  console.log("ho salvato");
+};
+const clearTasks = function () {
+  localStorage.removeItem("tasks");
+  const allTasks = document.querySelectorAll("li");
+  allTasks.forEach((el) => {
+    el.remove();
+  });
+};
+const clearListTasks = function () {
+  const allTasks = document.querySelectorAll("li");
+  allTasks.forEach((el) => {
+    el.remove();
+  });
+};
+
+const loadTasks = function () {
+  if (localStorage.getItem("tasks")) {
+    const newArrayTasks = JSON.parse(localStorage.getItem("tasks"));
+    newArrayTasks.forEach((el) => {
+      const element = document.createElement("li");
+      element.innerText = el;
+      taskContainer.appendChild(element);
+    });
+    arrayTask.concat(newArrayTasks);
+    console.log(arrayTask);
+  } else {
+    alert("non ci sono task da caricare");
+  }
+};
+
+addBtn.onclick = addTask;
+saveBtn.onclick = saveTasks;
+clearBtn.onclick = clearTasks;
+loadBtn.onclick = loadTasks;
+clearListBtn.onclick = clearListTasks;
+window.onload = () => {
+  loadTasks();
+  timer();
+};
